@@ -5,10 +5,12 @@ public class ConstanteFinal {
 
         Empleados trabajador1 = new Empleados("José A. Guerrero");
         Empleados trabajador2 = new Empleados("Neus Guerrero");
+        Empleados trabajador3 = new Empleados("Núria Barbero");
         trabajador1.cambiaSeccion("Recursos Humanos");
 
         System.out.println(trabajador1.devuelveDatos());
         System.out.println(trabajador2.devuelveDatos());
+        System.out.println(trabajador3.devuelveDatos());
     }
 }
 class Empleados{
@@ -33,4 +35,5 @@ class Empleados{
 /*
 El nombre es José A. Guerrero y su sección es Recursos Humanos
 El nombre es Neus Guerrero y su sección es Administración
+El nombre es Núria Barbero y su sección es Administración
  */
