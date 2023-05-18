@@ -24,15 +24,16 @@ public class Main_Empleado { // la clase principal que contenga el main, será p
 
         //Otra forma de hacer lo mismo con un array y menos código
 
-        Empleado[] misEmpleados = new Empleado[3];
+        Empleado[] misEmpleados = new Empleado[4];
         misEmpleados[0] = new Empleado("Paco Gómez", 85000, 1990, 12, 17);
         misEmpleados[1] = new Empleado("Antonio García", 95000, 1995, 6, 2);
         misEmpleados[2] = new Empleado("María Martín", 105000, 2002, 3, 15);
+        misEmpleados[3] = new Empleado("Margarito");
 
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 4; i++){
             misEmpleados[i].subeSueldo(5);
         }
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 4; i++){
             System.out.println("\nNombre: " + misEmpleados[i].dameNombre() + " \nSueldo: " + misEmpleados[i].dameSueldo() + "€"
                     + " \nFecha de Alta: " + misEmpleados[i].dameFechaContrato());
         }
@@ -60,6 +61,12 @@ class Empleado{
         //Este método solo tiene como objetivo, el crear una fecha.
         //GregorianCalendar(int year, int month, int dayOfMonth), ponemos mes-1 ya que Enero tiene el índice 0
         //de esa manera cuando pongamos 1 sobreentenderemos que será Enero y no Febrero.
+    }
+    public Empleado(String nom){ //Sobrecarga de constructor
+        this(nom, 3000, 1971, 12, 11);
+
+        //this(); llama al constructor que tenga los parámetros coincidentes entre paréntesis, para rellenar los campos
+        //por defecto que desconozcamos del nuevo empleado.
     }
     public String dameNombre(){ //GETTER
         return nombre;
@@ -105,6 +112,10 @@ Nombre: María Martín
 Sueldo: 110250.0€
 Fecha de Alta: Fri Mar 15 00:00:00 CET 2002
 
+Nombre: Margarito
+Sueldo: 3150.0€
+Fecha de Alta: Sat Dec 11 00:00:00 CET 1971
+
 Nombre: Paco Gómez
 Sueldo: 89250.0€
 Fecha de Alta: Mon Dec 17 00:00:00 CET 1990
@@ -117,4 +128,7 @@ Nombre: María Martín
 Sueldo: 110250.0€
 Fecha de Alta: Fri Mar 15 00:00:00 CET 2002
 
+Nombre: Margarito
+Sueldo: 3150.0€
+Fecha de Alta: Sat Dec 11 00:00:00 CET 1971
  */
