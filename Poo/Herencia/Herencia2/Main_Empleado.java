@@ -20,8 +20,12 @@ public class Main_Empleado {
         misEmpleados[4] = jefe_RRHH; //Polimorfismo. Es lo mismo que poner = new Jefatura("Marc Solà", 3500, 2017, 1, 10);
         misEmpleados[5] = new Jefatura("Federica García", 95000, 2016, 8, 24);
 
-        Jefatura jefa_Finanzas = (Jefatura) misEmpleados[5]; //Esto es un casting (Refundición) de métodos.
+        Jefatura jefa_Finanzas = (Jefatura) misEmpleados[5];
         jefa_Finanzas.estableceIncentivo(250000);
+
+        //Casting (Jefatura) del objeto misEmpleados[5] en el índice 5.
+        //Esto es un casting (Refundición) de métodos, para poder llamar a los métodos de la clase Jefatura.
+        //Convertimos el objeto misEmpleados en un objeto de la clase Jefatura en el índice definido.
 
         for (Empleado e : misEmpleados){
             e.subeSueldo(5);
