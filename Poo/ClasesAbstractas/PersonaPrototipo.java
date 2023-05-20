@@ -1,20 +1,21 @@
 package Poo.ClasesAbstractas;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class PersonaPrototipo {
     public static void main(String[] args) {
 
         Persona[] lasPersonas = new Persona[2];
-        lasPersonas[0] = new Empleado2("Luís Conde", 50000, 2009, 2, 25);
+        lasPersonas[0] = new Empleado2("Luís Conde", 54587.69);
         lasPersonas[1] = new Alumno("Ana López", "Biología");
 
         for (Persona p : lasPersonas) {
             System.out.println(p.dameNombre() + ", " + p.dameDescripcion());
         }
+
+        }
+
+
     }
-}
 abstract class Persona{
     private String nombre;
 
@@ -34,34 +35,22 @@ abstract class Persona{
 class Empleado2 extends Persona{
 
     private double sueldo;
-    private final Date altaContrato;
     private final int Id;
     private static int Idsiguiente = 1;
 
 
-    public Empleado2(String nom, double suel, int year, int mes, int dia){ //Constructor
+    public Empleado2(String nom, double suel){ //Constructor
 
         super(nom); //Invocamos al constructor de la clase padre o superclase, para heredar sus métodos.
         sueldo = suel;
-        GregorianCalendar calendario = new GregorianCalendar(year, mes-1, dia);
-        altaContrato = calendario.getTime();
         Id = Idsiguiente;
         Idsiguiente++;
 
     }
     public String dameDescripcion() { //Implementamos el método abstracto de la clase Persona.
-        return "este empleado tiene un Id= " + Id + " con un sueldo= " + sueldo;
+        return "empleado de MCM Obres i serveis SA, tiene un Id= " + Id + " con un sueldo= " + sueldo;
     }
-    public double dameSueldo(){ //GETTER
-        return sueldo;
-    }
-    public Date dameFechaContrato(){ //GETTER
-        return altaContrato;
-    }
-    public void subeSueldo(double porcentaje){ //SETTER
-        double aumento = sueldo * porcentaje/100;
-        sueldo += aumento;
-    }
+
 
 }
 class Alumno extends Persona{
@@ -74,6 +63,10 @@ class Alumno extends Persona{
 
     }
     public String dameDescripcion(){ //Implementamos el método abstracto de la clase Persona.
-        return "Este alumno está estudiando la carrera de " + carrera;
+        return "alumna del Instituto Cervantes, está estudiando la carrera de " + carrera;
     }
 }
+/*
+Luís Conde, empleado de MCM Obres i serveis SA, tiene un Id= 1 con un sueldo= 54587.69
+Ana López, alumna del Instituto Cervantes, está estudiando la carrera de Biología
+ */
