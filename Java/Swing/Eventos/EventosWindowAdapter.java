@@ -29,6 +29,8 @@ class MarcoVentana2 extends JFrame{
 }
 class Ventana2 extends WindowAdapter {
 
+    //Heredando la clase WindowAdapter, heredamos sus métodos y no necesitamos implementar todos los métodos como
+    //en la interfaz WindowListener, sólo invocamos los que vayamos a utilizar (Pequeño truco de los programadores)
     @Override
     public void windowOpened(WindowEvent e) {
         System.out.println("Ventana abierta");
