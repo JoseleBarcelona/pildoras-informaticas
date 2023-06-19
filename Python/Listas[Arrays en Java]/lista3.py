@@ -16,3 +16,14 @@ print(miLista3)
 
 miLista4 = [1,2,3,4,5,6] * 5 #Repite la lista x veces, en este caso 5 veces
 print(miLista4)
+
+
+"""
+['José', 5, True, 6.54]
+True
+6.54
+[5, True, 6.54]
+[5, True]
+[5, True, 50, False, 69.74]
+[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
+"""
