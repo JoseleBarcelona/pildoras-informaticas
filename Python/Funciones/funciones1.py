@@ -6,3 +6,10 @@ mensaje() #llamada a la función para que se ejecute
 mensaje()
 print("Hola chavales")
 mensaje()
+
+"""
+Aprendiendo Python
+Aprendiendo Python
+Hola chavales
+Aprendiendo Python
+"""
