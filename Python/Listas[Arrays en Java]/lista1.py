@@ -1,6 +1,8 @@
 #las listas a diferencia que en Java, pueden ser de distintos tipos
 
 miLista = ["José", "Núria", "Neus", "Papa", "Mama"]
+           #[0]      [1]      [2]     [3]     [4]
+           #[-5]     [-4]     [-3]    [-2]    [-1]
 #los índices positivos se cuentan desde el principio 0, 1, 2
 #Los índices negativos se cuentan desde el final -3,-2,-1
 
