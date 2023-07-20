@@ -37,6 +37,7 @@ class PanelAccion extends JPanel {
 
         InputMap mapaEntrada = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         mapaEntrada.put(KeyStroke.getKeyStroke("ctrl A"), "fondoamarillo");
+        mapaEntrada.put(KeyStroke.getKeyStroke("ctrl Y"), "fondoamarillo"); //Se pueden aplicar varias combinaciones, para una misma acción
         mapaEntrada.put(KeyStroke.getKeyStroke("ctrl B"), "fondoazul");
         mapaEntrada.put(KeyStroke.getKeyStroke("ctrl R"), "fondorojo");
 
