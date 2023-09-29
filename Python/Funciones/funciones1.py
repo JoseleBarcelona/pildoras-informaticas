@@ -7,9 +7,8 @@ mensaje()
 print("Hola chavales")
 mensaje()
 
-"""
-Aprendiendo Python
-Aprendiendo Python
-Hola chavales
-Aprendiendo Python
-"""
+
+#Aprendiendo Python
+#Aprendiendo Python
+#Hola chavales
+#Aprendiendo Python

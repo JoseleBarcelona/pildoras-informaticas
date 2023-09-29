@@ -10,3 +10,8 @@ elif edad_usuario>100:
     print("La edad es incorrecta")
 else:
     print("Puede pasar")
+
+
+# Introduce tu edad, por favor
+# 58
+# Puede pasar

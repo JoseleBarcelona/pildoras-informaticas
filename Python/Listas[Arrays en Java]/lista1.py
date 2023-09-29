@@ -16,14 +16,12 @@ print(miLista[1:4])
 print(miLista[2:4])
 print(miLista[3:]) #Desde el índice 3 hasta el final
 
-"""
-['José', 'Núria', 'Neus', 'Papa', 'Mama']
-Neus
-Papa
-['José', 'Núria', 'Neus']
-['José', 'Núria', 'Neus']
-['Núria', 'Neus']
-['Núria', 'Neus', 'Papa']
-['Neus', 'Papa']
-['Papa', 'Mama']
-"""
+#['José', 'Núria', 'Neus', 'Papa', 'Mama']
+#Neus
+#Papa
+#['José', 'Núria', 'Neus']
+#['José', 'Núria', 'Neus']
+#['Núria', 'Neus']
+#['Núria', 'Neus', 'Papa']
+#['Neus', 'Papa']
+#['Papa', 'Mama']

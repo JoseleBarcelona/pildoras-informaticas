@@ -15,9 +15,22 @@ print("Salario jefe area " + str(salario_jefe_area) + "eur")
 salario_administrativo = int(input("Introduce salario Administrativo\n"))
 print("Salario administrativo " + str(salario_administrativo) + "eur")
 
-if salario_administrativo<salario_jefe_area<salario_director<salario_presidente:
+if salario_administrativo < salario_jefe_area < salario_director < salario_presidente:
     print("\nLos salarios son equitativos al cargo")
 else:
     print("\nAlgo huele mal en la empresa")
 
 
+
+# Salario presidente 150000eur
+# Introduce salario Director
+# 125000
+# Salario director 125000eur
+# Introduce salario Jefe Area
+# 100000
+# Salario jefe area 100000eur
+# Introduce salario Administrativo
+# 50000
+# Salario administrativo 50000eur
+
+# Los salarios son equitativos al cargo

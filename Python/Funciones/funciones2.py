@@ -23,11 +23,10 @@ def multiplicacion(num1, num2):
 almacena_resultado = multiplicacion(5, 2)
 print(almacena_resultado)
 
-"""
-12
-25
--20
--200
--2
-10
-"""
+
+#12
+#25
+#-20
+#-200
+#-2
+#10

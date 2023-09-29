@@ -10,22 +10,22 @@ print(next(ciudadesDevueltas))
 print("")
 
 
-def devuelveCiudades(*ciudades):
+def devuelveCiudades2(*ciudades):
     for elemento in ciudades:
         for subelemento in elemento: #for anidado
             yield subelemento
 
 
-ciudadesDevueltas = devuelveCiudades("Madrid", "Barcelona", "Bilbao", "Valencia")
+ciudadesDevueltas = devuelveCiudades2("Madrid", "Barcelona", "Bilbao", "Valencia")
 print(next(ciudadesDevueltas)) #devuelve el primer subelemento
 print(next(ciudadesDevueltas))
 print("")
 
-def devuelveCiudades(*ciudades):
+def devuelveCiudades3(*ciudades):
     for elemento in ciudades:
         yield from elemento #yield from simplifica el código de un for anidado
 
 
-ciudadesDevueltas = devuelveCiudades("Madrid", "Barcelona", "Bilbao", "Valencia")
+ciudadesDevueltas = devuelveCiudades3("Madrid", "Barcelona", "Bilbao", "Valencia")
 print(next(ciudadesDevueltas)) #devuelve el primer subelemento
 print(next(ciudadesDevueltas))

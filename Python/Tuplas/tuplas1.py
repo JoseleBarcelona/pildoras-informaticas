@@ -23,21 +23,22 @@ print(mitupla3)
 mitupla4 = "Mariano", 141, 15.6 #Si no le ponemos los (), también interpreta que es una tupla
 print(mitupla4)
 
-nombre, dia, mes, agno = mitupla #Se puede asignar a variables, los valores de una tupla.
+nombre, dia, mes, agno = mitupla #Se puede asignar a variables, los valores de una tupla.(Desempaquetado)
 print(dia, agno, nombre, mes)
+print(agno, dia, mes, nombre)
 
-"""
-('Juan', 13, 1, 1995)
-13
-['Juan', 13, 1, 1995]
-['Antonio', 'Federico', 1, 1, 1, 45.5, False]
-('Antonio', 'Federico', 1, 1, 1, 45.5, False)
-False
-True
-3
-7
-1
-('Leche',)
-('Mariano', 141, 15.6)
-13 1995 Juan 1
-"""
+
+#('Juan', 13, 1, 1995)
+#13
+#['Juan', 13, 1, 1995]
+#['Antonio', 'Federico', 1, 1, 1, 45.5, False]
+#('Antonio', 'Federico', 1, 1, 1, 45.5, False)
+#False
+#True
+#3
+#7
+#1
+#('Leche',)
+#('Mariano', 141, 15.6)
+#13 1995 Juan 1
+#1995 13 1 Juan
