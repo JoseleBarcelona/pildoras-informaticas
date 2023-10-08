@@ -1,0 +1,2 @@
+Cambio de texto inicialnvenidos al curso de Python.
+Esta linea ha sido incluida desde el exterior
