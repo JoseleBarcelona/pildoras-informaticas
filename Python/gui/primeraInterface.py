@@ -10,7 +10,7 @@ raiz.resizable(0, 0)
 #(0, 1)Solo deja redimensionar el alto
 #(0, 1)Deja redimensionar el ancho y el alto
 #También podemos redimensionarlo usando los booleans (True, True), (False, True), ...etc.
-raiz.iconbitmap("gui/telegram.ico")
+raiz.iconbitmap("telegram.ico")
 #Para cambiar el icono, tienes que convertir una imagen a una extensión .ico (Hay conversores en google)
 raiz.geometry("650x350")
 #Establece el tamaño de la ventana
