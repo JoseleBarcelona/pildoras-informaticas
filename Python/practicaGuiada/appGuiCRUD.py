@@ -43,17 +43,73 @@ def crearRegistros():
     miConexion=sqlite3.connect("Usuarios")
     miCursor=miConexion.cursor()
 
-    miCursor.execute("INSERT INTO DATOSUSUARIOS VALUES(NULL, '" + miNombre.get() +
-                    "','" + miPassw.get() +
-                    "','" + miApellido.get() +
-                    "','" + miDireccion.get() +
-                    "','" + textoComentario.get("1.0", END) + "')")
+    # miCursor.execute("INSERT INTO DATOSUSUARIOS VALUES(NULL, '" + miNombre.get() +
+    #                 "','" + miPassw.get() +
+    #                 "','" + miApellido.get() +
+    #                 "','" + miDireccion.get() +
+    #                 "','" + textoComentario.get("1.0", END) + "')")
+
+    datos=miNombre.get(), miPassw.get(), miApellido.get(), miDireccion.get(), textoComentario.get("1.0", END)
+    miCursor.execute("INSERT INTO DATOSUSUARIOS VALUES(NULL,?,?,?,?,?)",(datos))
+
     miConexion.commit()
     messagebox.showinfo("BBDD", "Registro insertado con éxito")
 
     miCursor.close()
     miConexion.close()
 
+def leer():
+    miConexion=sqlite3.connect("Usuarios")
+    miCursor=miConexion.cursor()
+
+    miCursor.execute("SELECT * FROM DATOSUSUARIOS WHERE ID=" + miId.get())
+    elusuario=miCursor.fetchall() #Esto devuelve una array de todos los campos
+
+    for usuario in elusuario: #Con el bucle recorremos el array
+        miId.set(usuario[0]) #A miId le establecemos lo que leamos en el índice 0
+        miNombre.set(usuario[1]) #A miNombre le establecemos lo que leamos en el índice 1
+        miPassw.set(usuario[2])
+        miApellido.set(usuario[3])
+        miDireccion.set(usuario[4])
+        textoComentario.insert(1.0, usuario[5]) #Leemos el cuadro de texto desde el primer caracter
+
+    miConexion.commit()
+
+
+    miCursor.close()
+    miConexion.close()
+
+def actualizar():
+    miConexion=sqlite3.connect("Usuarios")
+    miCursor=miConexion.cursor()
+
+    # miCursor.execute("UPDATE DATOSUSUARIOS SET NOMBRE_USUARIO='" + miNombre.get() +
+    #                  "', PASSWORD='" + miPassw.get() +
+    #                  "', APELLIDO='" + miApellido.get() +
+    #                  "', DIRECCION='" + miDireccion.get() +
+    #                  "', COMENTARIOS='" + textoComentario.get("1.0", END) +
+    #                  "' WHERE ID=" + miId.get())
+
+    datos=miNombre.get(), miPassw.get(), miApellido.get(), miDireccion.get(), textoComentario.get("1.0", END)
+    miCursor.execute("UPDATE DATOSUSUARIOS SET NOMBRE_USUARIO=?, PASSWORD=?, APELLIDO=?, "
+                     "DIRECCION=?, COMENTARIOS=?" + "WHERE ID=" + miId.get(),(datos))
+
+    miConexion.commit()
+    messagebox.showinfo("BBDD", "Registro actualizado con éxito")
+    miCursor.close()
+    miConexion.close()
+
+def eliminarRegistros():
+    miConexion=sqlite3.connect("Usuarios")
+    miCursor=miConexion.cursor()
+    miCursor.execute("DELETE FROM DATOSUSUARIOS WHERE ID=" + miId.get())
+
+
+
+    miConexion.commit()
+    messagebox.showinfo("BBDD", "Registro borrado con éxito")
+    miCursor.close()
+    miConexion.close()
 
     #----------------Creación de menú y submenús----------------#
     
@@ -71,9 +127,9 @@ borrarMenu.add_command(label="Borrar campos", command=borrarCampos)
 
 crudMenu=Menu(barraMenu, tearoff=0)
 crudMenu.add_command(label="Crear", command=crearRegistros)
-crudMenu.add_command(label="Leer")
-crudMenu.add_command(label="Actualizar")
-crudMenu.add_command(label="Borrar")
+crudMenu.add_command(label="Leer", command=leer)
+crudMenu.add_command(label="Actualizar", command=actualizar)
+crudMenu.add_command(label="Borrar", command=eliminarRegistros)
 
 AyudaMenu=Menu(barraMenu, tearoff=0)
 AyudaMenu.add_command(label="Licencia")
@@ -146,13 +202,13 @@ miframe2.pack()
 botonCrear=Button(miframe2, text="Create", command=crearRegistros)
 botonCrear.grid(row=0, column=0, sticky="e", pady=10, padx=10)
 
-botonLeer=Button(miframe2, text="Read")
+botonLeer=Button(miframe2, text="Read", command=leer)
 botonLeer.grid(row=0, column=1, sticky="e", pady=10, padx=10)
 
-botonActualizar=Button(miframe2, text="Update")
+botonActualizar=Button(miframe2, text="Update", command=actualizar)
 botonActualizar.grid(row=0, column=2, sticky="e", pady=10, padx=10)
 
-botonBorrar=Button(miframe2, text="Delete")
+botonBorrar=Button(miframe2, text="Delete", command=eliminarRegistros)
 botonBorrar.grid(row=0, column=3, sticky="e", pady=10, padx=10)
 
 root.mainloop()
