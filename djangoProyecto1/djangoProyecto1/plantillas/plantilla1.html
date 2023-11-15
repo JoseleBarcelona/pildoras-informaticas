@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primera plantilla con Django</title>
+</head>
+<body>
+    <h2 style="color: red;">Esta es una plantilla con Django</h2>
+    <p>El nombre del usuario es: {{nombre_usuario}} {{apellido_usuario}}</p>
+    <p>La fecha actual en formato standard es: {{fecha_actual.date}}</p>
+    <p>La fecha actual en formato Europeo es: {{fecha_actual.day}}/{{fecha_actual.month}}/{{fecha_actual.year}}</p>
+    <p>La hora actual es: {{fecha_actual.time}}</p>
+    <p>La fecha y hora actuales en formato standard es: {{fecha_actual}}</p>
+</body>
+</html>
