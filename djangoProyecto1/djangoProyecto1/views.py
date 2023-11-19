@@ -52,39 +52,60 @@ def calculaEdad2(request, edad, agno):
             </html>''' %(agno, edadFutura)
     return HttpResponse(documento)
 
-#Primera vista con plantillas
-def saludoPlantilla(request):
-    doc_externo=open("C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html")
+#Primera plantilla
+def saludo_plantilla(request):
+    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
     ctx=Context()
     documento=plt.render(ctx)
+
     return HttpResponse(documento)
 
-#Segunda vista con plantillas y variables
-def saludo_plantilla_variables(request):
+#Segunda plantilla con variables
+def saludo_variables(request):
     nombre='Josele'
-    apellido='Barcelona'
+    ubicacion='Barcelona'
     fecha=datetime.datetime.now()
-    doc_externo=open("C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html")
+    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
-    ctx=Context({'nombre_usuario':nombre, 'apellido_usuario':apellido, 'fecha_actual':fecha})
+    ctx=Context({'nombre_usuario':nombre, 'ubicacion_usuario':ubicacion, 'fecha_actual':fecha})
     documento=plt.render(ctx)
+
     return HttpResponse(documento)
 
-#Tercera vista con plantillas, variables y clases
-class Persona():
-    def __init__(self, nombre, apellido):
-        self.nombre=nombre
-        self.apellido=apellido
+#tercera plantilla con clases
+class Persona(object):
+    def __init__(self, nombre, ubicacion):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
 
 def saludo_clases(request):
-    p1=Persona('Josele', 'Barcelona')
+    p1=Persona('Núria', 'Barcelona')
     fecha=datetime.datetime.now()
-    doc_externo=open("C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html")
+    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
-    ctx=Context({'nombre_usuario':p1.nombre, 'apellido_usuario':p1.apellido, 'fecha_actual':fecha})
+    ctx=Context({'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha})
     documento=plt.render(ctx)
+
+    return HttpResponse(documento)
+
+#cuarta plantilla con listas y bucles
+class Persona(object):
+    def __init__(self, nombre, ubicacion):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
+
+def saludo_bucles(request):
+    p1=Persona('Núria', 'Barcelona')
+    temas=['Plantillas', 'Modelos', 'Formularios', 'Vistas', 'Despliegue']
+    fecha=datetime.datetime.now()
+    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla2.html')
+    plt=Template(doc_externo.read())
+    doc_externo.close()
+    ctx=Context({'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha, 'temas_curso':temas})
+    documento=plt.render(ctx)
+
     return HttpResponse(documento)
