@@ -54,7 +54,7 @@ ROOT_URLCONF = 'djangoProyecto1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

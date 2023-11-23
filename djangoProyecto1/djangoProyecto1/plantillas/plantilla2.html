@@ -6,6 +6,14 @@
     <title>Documento de pruebas 2</title>
 </head>
 <body>
+
+    {# Comentario de una sola línea #}
+
+    {% comment %}
+    Comentario de varias
+    líneas en Django
+    {% endcomment %}
+
     <h1 style="color: brown;">Bucles, Condicionales, Listas</h1>
     <p><strong>Temas del curso usando una lista</strong></p>
     <p>{{temas_curso}}</p>
@@ -19,7 +27,6 @@
 
         {% endfor %}
     </p>
-
     <p>
         {% for i in temas_curso %}
 
@@ -35,7 +42,6 @@
     
         {% endfor %}
     </ul>
-
     <p>
         {% if temas_curso %}
             <p>La lista existe</p>
@@ -43,6 +49,21 @@
             <p>La lista no existe</p>
         {% endif %}
     </p>
+    <p><strong>Lista</strong></p>
+    <ul>
+        {% for i in temas_curso|first|upper %}
     
+            <li>{{i}}</li>
+    
+        {% endfor %}
+    </ul>  
+    <p><strong>Lista</strong></p>
+    <ul>
+        {% for i in temas_curso %}
+    
+            <li>{{i|first}}</li>
+    
+        {% endfor %}
+    </ul>
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
+from django.template import Template, Context, loader
+from django.shortcuts import render
 
 #Primera vista
 def saludo(request): 
@@ -75,7 +76,7 @@ def saludo_variables(request):
 
     return HttpResponse(documento)
 
-#tercera plantilla con clases
+#Tercera plantilla con clases
 class Persona(object):
     def __init__(self, nombre, ubicacion):
         self.nombre = nombre
@@ -92,7 +93,7 @@ def saludo_clases(request):
 
     return HttpResponse(documento)
 
-#cuarta plantilla con listas y bucles
+#Cuarta plantilla con listas y bucles
 class Persona(object):
     def __init__(self, nombre, ubicacion):
         self.nombre = nombre
@@ -109,3 +110,43 @@ def saludo_bucles(request):
     documento=plt.render(ctx)
 
     return HttpResponse(documento)
+
+#Quinta plantilla con cargadores (Loader)
+class Persona(object):
+    def __init__(self, nombre, ubicacion):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
+
+def saludo_cargadores(request):
+    p1=Persona('Núria', 'Barcelona')
+    fecha=datetime.datetime.now()
+    doc_externo=loader.get_template('plantilla1.html')
+    ctx={'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha}
+    documento=doc_externo.render(ctx)
+
+    return HttpResponse(documento)
+
+#Sexta plantilla con el método render de la clase Django.shortcuts
+class Persona(object):
+    def __init__(self, nombre, ubicacion):
+        self.nombre = nombre
+        self.ubicacion = ubicacion
+
+def saludo_shortcut_render(request):
+    p1=Persona('Núria', 'Barcelona')
+    fecha=datetime.datetime.now()
+    ctx={'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha}
+
+    return render(request, 'plantilla1.html', ctx)
+
+#Primera plantilla con herencia
+def herencia(request):
+    fecha=datetime.datetime.now()
+    ctx={'dame_fecha':fecha}
+    return render(request, 'herencia/plantilla_hija1.html', ctx)
+
+#Segunda plantilla con herencia
+def herencia2(request):
+    fecha=datetime.datetime.now()
+    ctx={'dame_fecha':fecha}
+    return render(request, 'herencia/plantilla_hija2.html', ctx)
