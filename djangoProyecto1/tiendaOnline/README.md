@@ -77,7 +77,7 @@
 A) Le decimos a Django que primero genere el código SQL de los modelos creados  
 - `C:\Users\34660\.vscode\Visual Studio Code\PildorasInformaticasDjango\tiendaOnline>` *python manage.py sqlmigrate App_gestionPedidos 0001*  
   
-        `Si todo es correcto, se mostrará este mensaje en el shell:`
+    `Si todo es correcto, se mostrará este mensaje en el shell:`
         ```
         BEGIN;
             Create model Articulos
