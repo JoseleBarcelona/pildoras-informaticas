@@ -115,3 +115,36 @@ B) Migramos las tablas a la base de datos
 
 - `C:\Users\34660\.vscode\Visual Studio Code\PildorasInformaticasDjango\tiendaOnline>` *python manage.py migrate*
 
+### Pasos para Insert, update, delete en la base de datos
+- `C:\Users\34660\.vscode\Visual Studio Code\PildorasInformaticasDjango\tiendaOnline>` *python manage.py shell*  
+  
+- `In [1]: from App_gestionPedidos.models import Articulos`
+  
+- `In [2]: art=Articulos(nombre='mesa', seccion='decoració', precio=90)`
+  
+- `In [3]: art.save()`
+  
+- `In [4]: art2=Articulos(nombre='camisa', seccion='confección', precio=75)`
+  
+- `In [5]: art2.save()`
+
+- `In [6]: art3=Articulos.objects.create(nombre='taladro', seccion='ferretería', precio=65)`
+  
+- `In [7]: art.seccion='decoración'`
+
+- `In [9]: art4=Articulos.objects.get(id=1)`
+
+- `In [10]: art4.delete()`
+
+- `Out[10]: (1, {'App_gestionPedidos.Articulos': 1})`
+
+- `In [11]: lista=Articulos.objects.all()`
+
+- `In [12]: lista`
+
+- `Out[12]: <QuerySet [<Articulos: Articulos object (2)>, <Articulos: Articulos object (3)>]>`
+
+-  `In [15]: lista.query.__str__()`
+
+- `Out[15]: 'SELECT "App_gestionPedidos_articulos"."id", "App_gestionPedidos_articulos"."nombre", "App_gestionPedidos_articulos"."seccion", "App_gestionPedidos_articulos"."precio" FROM "App_gestionPedidos_articulos"'`
+
