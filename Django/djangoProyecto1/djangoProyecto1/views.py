@@ -25,7 +25,7 @@ def dameFecha(request):
     fecha_actual=datetime.datetime.now()
     documento='''<html>
                 <body>
-                    <h1>Fecha y hora actual %s </h1>
+                    <h2>Fecha y hora actual %s </h2>
                 </body>
             </html>''' %fecha_actual
     return HttpResponse(documento)
@@ -55,7 +55,7 @@ def calculaEdad2(request, edad, agno):
 
 #Primera plantilla
 def saludo_plantilla(request):
-    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
+    doc_externo=open('C:/Programación/PildorasInformaticas/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
     ctx=Context()
@@ -68,7 +68,7 @@ def saludo_variables(request):
     nombre='Josele'
     ubicacion='Barcelona'
     fecha=datetime.datetime.now()
-    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
+    doc_externo=open('C:/Programación/PildorasInformaticas/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla2.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
     ctx=Context({'nombre_usuario':nombre, 'ubicacion_usuario':ubicacion, 'fecha_actual':fecha})
@@ -85,7 +85,7 @@ class Persona(object):
 def saludo_clases(request):
     p1=Persona('Núria', 'Barcelona')
     fecha=datetime.datetime.now()
-    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla1.html')
+    doc_externo=open('C:/Programación/PildorasInformaticas/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla2.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
     ctx=Context({'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha})
@@ -94,50 +94,33 @@ def saludo_clases(request):
     return HttpResponse(documento)
 
 #Cuarta plantilla con listas y bucles
-class Persona(object):
-    def __init__(self, nombre, ubicacion):
-        self.nombre = nombre
-        self.ubicacion = ubicacion
-
 def saludo_bucles(request):
-    p1=Persona('Núria', 'Barcelona')
     temas=['Plantillas', 'Modelos', 'Formularios', 'Vistas', 'Despliegue']
-    fecha=datetime.datetime.now()
-    doc_externo=open('C:/Users/34660/.vscode/Visual Studio Code/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla2.html')
+    doc_externo=open('C:/Programación/PildorasInformaticas/PildorasInformaticasDjango/djangoProyecto1/djangoProyecto1/plantillas/plantilla3.html')
     plt=Template(doc_externo.read())
     doc_externo.close()
-    ctx=Context({'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha, 'temas_curso':temas})
+    ctx=Context({'temas_curso':temas})
     documento=plt.render(ctx)
 
     return HttpResponse(documento)
 
 #Quinta plantilla con cargadores (Loader)
-class Persona(object):
-    def __init__(self, nombre, ubicacion):
-        self.nombre = nombre
-        self.ubicacion = ubicacion
-
 def saludo_cargadores(request):
     p1=Persona('Núria', 'Barcelona')
     fecha=datetime.datetime.now()
-    doc_externo=loader.get_template('plantilla1.html')
+    doc_externo=loader.get_template('plantilla2.html')
     ctx={'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha}
     documento=doc_externo.render(ctx)
 
     return HttpResponse(documento)
 
 #Sexta plantilla con el método render de la clase Django.shortcuts
-class Persona(object):
-    def __init__(self, nombre, ubicacion):
-        self.nombre = nombre
-        self.ubicacion = ubicacion
-
 def saludo_shortcut_render(request):
     p1=Persona('Núria', 'Barcelona')
     fecha=datetime.datetime.now()
     ctx={'nombre_usuario':p1.nombre, 'ubicacion_usuario':p1.ubicacion, 'fecha_actual':fecha}
 
-    return render(request, 'plantilla1.html', ctx)
+    return render(request, 'plantilla2.html', ctx)
 
 #Primera plantilla con herencia
 def herencia(request):

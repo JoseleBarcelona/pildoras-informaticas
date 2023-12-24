@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla 3</title>
+</head>
+<body>
+
+    {# Comentario de una sola línea #}
+
+    {% comment %}
+    Comentario de varias
+    líneas en Django
+    {% endcomment %}
+
+    <h1 style="color: brown;">Bucles, Condicionales, Listas</h1>
+    <p><strong>Temas del curso usando una lista</strong></p>
+    <p>{{temas_curso}}</p>
+    <p>{{temas_curso.0}}</p>
+    <p>El tema ubicado en el &iacute;ndice 2 es: {{temas_curso.2}}</p>
+    <p><strong>Temas del curso usando un bucle de la lista</strong></p>
+    <p>
+        {% for i in temas_curso %}
+
+            {{i}}
+
+        {% endfor %}
+    </p>
+    <p>
+        {% for i in temas_curso %}
+
+            <p>{{i}}</p>
+
+        {% endfor %}
+    </p>
+    <p><strong>Lista</strong></p>
+    <ul>
+        {% for i in temas_curso %}
+    
+            <li>{{i}}</li>
+    
+        {% endfor %}
+    </ul>
+    <p>
+        {% if temas_curso %}
+            <p>La lista existe</p>
+        {% else %}
+            <p>La lista no existe</p>
+        {% endif %}
+    </p>
+    <p><strong>Lista</strong></p>
+    <ul>
+        {% for i in temas_curso|first|upper %}
+    
+            <li>{{i}}</li>
+    
+        {% endfor %}
+    </ul>  
+    <p><strong>Lista</strong></p>
+    <ul>
+        {% for i in temas_curso %}
+    
+            <li>{{i|first}}</li>
+    
+        {% endfor %}
+    </ul>
+</body>
+</html>
