@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda en DB</title>
+</head>
+<body>
+
+    <p>Estás buscando: <strong>{{query}}</strong></p>
+
+    {% if articulos %}
+        <p>Artículos encontrados: {{articulos|length}} artículos</p>
+
+        <ul>
+
+            {% for articulo in articulos %}
+                <li>
+                    <strong>Artículo:</strong> {{articulo.nombre}}, &nbsp; <strong>Sección:</strong>{{articulo.seccion}}, &nbsp; <strong>Precio:</strong>{{articulo.precio}}
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>El artículo buscado, no se en cuentra en la base de datos</p>
+    {% endif %}
+
+</body>
+</html>

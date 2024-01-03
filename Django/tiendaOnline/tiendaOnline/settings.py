@@ -123,3 +123,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Parámetros para enviar correos de gmail desde Django
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT =587
+EMAIL_HOST_USER = 'correo_de_envio@gmail.com'
+EMAIL_HOST_PASSWORD = 'contraseña de aplicacion generada por google' 
+
+#En  tu cuenta de google, buscar seguridad, contraseñas de aplicación, dar nombre y generar la contraseña,
+# luego escribir esto: send_mail('Asunto de prueba', 'Este es el mensaje que envío desde el servidor de Django', 'correo_desde_donde_envio@gmail.com', ['correo_que_recibe@gmail.com'], fail_silently=False, auth_user='correo_desde_donde_envio@gmail.com', auth_password='contraseña_generada_aplicación'), si todo es correcto te tiene que dar 1
+
+
